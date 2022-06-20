@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="toolbar">
+      <ion-button (click)="goBack()" fill="clear">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="order">
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="subtitle">Id comandă: {{order.id}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p class="product">
+        <b>Client:</b> {{order.client.name}}
+      </p>
+      <p>
+        <b>Data:</b> {{order.dateOfOrder}}
+      </p>
+      <p>
+        <b>Dată sincronizare: </b>{{order.dateOfSending}}
+      </p>
+      <p>
+        <b>Status:</b> {{order.status}}
+      </p>
+      <p>
+        <b>Preț total:</b> {{order.price}} RON
+      </p>
+
+      <ion-card>
+      <div>
+        <p class="subtitle" style="margin-top: 1em;">
+          Listă produse:
+        </p>
+      </div>
+      <div   *ngIf="products">
+        <ion-item class="orderDetails" *ngFor="let productQuantity of productQuantities" button (click)="openProductDetails(productQuantity.product)">
+
+          <div>
+            <p>
+              <b>Produs:</b> {{productQuantity.product.name}}
+            </p>
+            <p>
+              <b>Cantitate:</b>  {{productQuantity.quantity}} buc
+            </p>
+            <p>
+              <b>Preț produse:</b> {{ productQuantity.price }} ron
+            </p>
+          </div>
+        </ion-item>
+      </div>
+      <ion-item class="PDF" button (click)="openPDF(order)">
+        Format PDF
+      </ion-item>
+    </ion-card>
+      <ion-button (click)="cancelOrder(order.id)" *ngIf="order.status === 'OPEN'">
+        <!-- <ion-icon name="remove"></ion-icon> -->
+        Anulează comanda
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

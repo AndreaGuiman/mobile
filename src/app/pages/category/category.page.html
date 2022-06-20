@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()" fill="clear" *ngIf="clientId">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-button (click)="goToCart()" class="cart" fill="clear" *ngIf="clientId">
+      <ion-icon name="cart"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div>
+    <div>
+      <div class="search-list" >
+        <ion-searchbar placeholder="Nume Produs" (ionInput)="searchProducts($event)">
+        </ion-searchbar>
+      </div>
+      <div *ngIf="viewSearchbar" class="products-list">
+        <ion-list class="list">
+          <ion-item button (click)="goToProductDetailsFromSearchBar(productName)" *ngFor="let productName of productNames" class="item-content">{{productName}}</ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+<ion-content>
+  <ion-grid>
+    <ion-row >
+      <ion-col size="6" *ngFor="let category of categories">
+        <ion-item button (click)="goToProducts(category)">
+          <div class="grid-item">
+            <img [src]="category.categoryPhoto"/>
+            <p>
+              {{category.name}}
+            </p>
+          </div>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

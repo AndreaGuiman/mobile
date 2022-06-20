@@ -1,0 +1,75 @@
+ion-card-header{
+    text-align: center;
+}
+
+ion-card-content{
+    display: flex;
+    justify-content: center;
+}
+
+ion-card{
+    border-radius: 1em;
+    background-color: transparent;
+    box-shadow: none;
+}
+
+img{
+    margin: 0 auto;
+    width: 45%;
+    border-radius: 50% !important;
+}
+
+ion-list{
+    margin: 0 auto;
+    width: 95%;
+    border-radius: 1em;
+}
+
+ion-item{
+    margin: 0 auto;
+    width: 95%;
+}
+
+ion-item:last-child{
+    margin-bottom: 0.7em;
+}
+
+// .top-item{
+//     border-radius: 1em 1em 0 0;
+// }
+
+// .bottom-item{
+//     border-radius: 0 0 1em 1em;
+// }
+
+// .only-item{
+//     border-radius: 1em;
+// }
+
+p{
+    margin-left: 12%;
+    margin-top: 1.7em;
+    color: var(--ion-color-medium);
+    font-size: small;
+}
+
+.title{
+    font-size: x-large;
+    font-weight: bold;
+    color: #3d3d3d;
+}
+
+.subtitle{
+    color: #1e1e1e;
+}
+
+.temp{
+    margin-left: 5%;
+    border-radius: 0;
+}
+
+.tile-title{
+    font-size: larger;
+    font-weight: bold;
+    color: #3d3d3d;
+}

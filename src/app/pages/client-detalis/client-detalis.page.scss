@@ -1,0 +1,44 @@
+.details p{
+    padding-bottom: 1.5em;
+    color: rgb(5, 91, 131);
+}
+
+ion-card{
+    border-radius: 1em;
+    background-color: #f4f4f480 !important;
+
+}
+
+.paragraph{
+    margin-left: 12%;
+    margin-top: 1.7em;
+    // color: var(--ion-color-medium);
+    color:rgb(5, 91, 131);
+    font-size: larger;
+    font-weight: bold;
+}
+
+.first{
+    border-radius: 1em 1em 0 0;
+}
+
+.last{
+    border-radius: 0 0 1em 1em;
+}
+
+.actions{
+    width: 95%;
+    margin: 0 auto;
+}
+
+.edit{
+    font-weight: bold;
+    font-size: 0.8em;
+    background-color: var(--ion-color-primary) !important;
+    color: white !important;
+}
+
+.edit:hover{
+    background: rgb(95, 188, 211) !important;
+    background: linear-gradient(90deg, rgba(95,188,211,1) 21%, rgba(0,212,255,1) 54%, rgba(2,0,36,1) 100%) !important;
+}

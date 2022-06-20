@@ -1,0 +1,86 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-button (click)="goToCart()" class="cart" *ngIf="cartId">
+      <ion-icon name="cart"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div>
+    <div>
+      <div class="search-list" >
+        <ion-searchbar placeholder="Nume Produs" (ionInput)="searchProducts($event)">
+        </ion-searchbar>
+      </div>
+      <div *ngIf="viewSearchbar" class="products-list">
+        <ion-list>
+          <ion-item button (click)="goToProductDetailsFromSearchBar(productName)" *ngFor="let productName of productNames" class="item-content">{{productName}}</ion-item>
+        </ion-list>
+      </div>
+    </div>
+  </div>
+
+  <ion-grid class="product">
+    <ion-row *ngFor="let productImage of productsImage">
+      <ion-col size="12">
+        <!-- <ion-item button (click)="goToProductDetails(product.id)"> -->
+        <ion-item>
+          <div class="grid-item">
+            <div class="container-img">
+              <ion-img [src]="productImage.image" *ngIf="productImage.image" button (click)="goToProductDetails(productImage.product.id)" class="image">
+              </ion-img>
+            </div>
+            <div class="product-preview">
+              <div>
+                <p>
+                  {{productImage.product.name}}
+                </p>
+                <p>
+                  Preț: {{productImage.product.price}} RON
+                </p>
+                <p>
+                  Stoc: {{productImage.product.stock}} buc
+                </p>
+                <!-- <p>
+                  Descriere: {{productImage.product.description}}
+                </p> -->
+              </div>
+            </div>
+            <div class="container-btn-add-cart">
+              <ion-button (click)="addToCart(productImage.product.id)" *ngIf="cartId">
+                <ion-icon name="add"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div [hidden]="!showSelectQuantity" class="fixed">
+    <ion-card>
+      <ion-card-content>
+        <div class="temp">
+          <p class="q">
+            Cantitate:
+          </p>
+          <ion-input type="text" [(ngModel)]="quantity">
+          </ion-input>
+        </div>
+        <div class="temp">
+          <ion-button (click)="getValueFromInputQuantity()">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+          </ion-button>
+          <ion-button (click)="close()" fill="clear">
+            <ion-icon name="close"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+

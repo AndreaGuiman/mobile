@@ -1,0 +1,17 @@
+.toolbar{
+    display: flex;
+    font-size: large;
+}
+
+ion-input{
+    border-radius: .5em !important;
+    --background: var(--ion-color-medium-tint) !important;
+    color: var(--ion-color-light);
+}
+
+ion-label{
+    font-size: large;
+}
+section{
+    color: rgb(4, 4, 85);
+}

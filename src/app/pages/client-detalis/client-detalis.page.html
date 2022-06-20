@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()" fill="clear">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <p class="paragraph">
+    Informații client
+  </p>
+  <ion-card *ngIf="client">
+    <ion-card-content class="details">
+      <div *ngIf="!edit">
+        <p>
+          <b>Nume:</b> {{client.name}}
+        </p>
+        <p>
+          <b>Adresă: </b>{{client.address}}
+        </p>
+        <p>
+          <b>CUI/CNP:</b> {{client.vatOrIdNumber}}
+        </p>
+        <p>
+          <b>Cont bancar:</b> {{client.bankAccount}}
+        </p>
+        <p>
+          <b>Număr telefon:</b> {{client.telephoneNumber}}
+        </p>
+        <p>
+          <b>Email:</b> {{client.email}}
+        </p>
+      </div>
+      <div *ngIf="edit">
+        <section style="margin-top: 2em;">
+          <div class="container">
+            <ion-label>Nume client:</ion-label>
+            <ion-input type="text" placeholder="Nume client" [(ngModel)]="inputName"></ion-input>
+          </div>
+        </section>
+        <section style="margin-top: 2em;">
+          <div class="container">
+            <ion-label>Adresa:</ion-label>
+            <ion-input type="text" placeholder="Adresa" [(ngModel)]="inputAddress"></ion-input>
+          </div>
+        </section>
+        <!-- <section style="margin-top: 2em;">
+          <div class="container">
+            <ion-label>CUI/CNP:</ion-label>
+            <ion-input type="text" placeholder="CUI" [(ngModel)]="inputVatNumber"></ion-input>
+          </div>
+        </section> -->
+        <section style="margin-top: 2em;">
+          <div class="container">
+            <ion-label>Nume bancă:</ion-label>
+            <ion-input type="text" placeholder="Nume banca" [(ngModel)]="inputBankName"></ion-input>
+          </div>
+        </section>
+        <section style="margin-top: 2em;">
+          <div class="container">
+            <ion-label>Număr bancar:</ion-label>
+            <ion-input type="text" placeholder="Numar bancar" [(ngModel)]="inputBankNumber"></ion-input>
+          </div>
+        </section>
+        <section style="margin-top: 2em;">
+          <div class="container">
+            <ion-label>Număr de telefon:</ion-label>
+            <ion-input type="text" placeholder="Numar de telefon" [(ngModel)]="inputTelephoneNumber"></ion-input>
+          </div>
+        </section>
+        <section style="margin-top: 2em;">
+          <div class="container">
+            <ion-label>Adresa de email:</ion-label>
+            <ion-input type="text" placeholder="Adresa" [(ngModel)]="inputEmailAddress"></ion-input>
+          </div>
+        </section>
+      </div>
+      <ion-button (click)="editAction()" fill="clear" class="edit" *ngIf="!edit">
+        <ion-icon name="settings"></ion-icon>
+        Editează client
+      </ion-button>
+      <ion-button (click)="update()" fill="clear" class="edit" *ngIf="edit">
+        <ion-icon name="checkmark-done-outline"></ion-icon>
+        Salvează modificări
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+  <p class="paragraph">
+    Acțiuni
+  </p>
+  <div class="actions">
+    <ion-item button (click)="createCommand()">
+      Creeză comandă nouă
+    </ion-item>
+    <ion-item button (click)="history()" class="last">
+      Istoric comenzi
+    </ion-item>
+  </div>
+</ion-content>

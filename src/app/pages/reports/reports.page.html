@@ -1,0 +1,229 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="toolbar">
+      <ion-button (click)="goBack()" fill="clear">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list-header>
+    <ion-title>
+      Rapoarte
+    </ion-title>
+  </ion-list-header>
+
+  <div>
+    <p class="paragraph">
+      Detalii despre produse:
+    </p>
+    <ion-card>
+      <ion-card-subtitle>
+        <ion-item class="report" button (click)="showContentTopProductsSoldByLoggedAgentAction()">
+          Top produse
+        </ion-item>
+      </ion-card-subtitle>
+      <div [hidden]="!showContentTopProductsSoldByLoggedAgent">          
+        <ion-row>
+          <ion-col style="display: flex;">
+            <p class="choose" style="margin:auto; width: 85%; text-align: center; margin-top: 1.5em">
+              Alegeți numărul de produse afișate în grafic:
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select [(ngModel)]="defaultNumberOfObjects" placeholder="1 (implicit)" (ionChange)="selectNumberOfProductsTopProductsSoldByLoggedAgentAction($event)" 
+                (ionCancel)="clearSelectionNumberOfProductsTopProductsSoldByLoggedAgent()">
+              <ion-select-option *ngFor="let numberOfProducts of numbersOfObjects" value={{numberOfProducts}}>{{numberOfProducts}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <div class="line"></div>
+        <ion-row>
+          <ion-col>
+            <p class="choose" style="margin:auto; width: 85%; text-align: center; margin-top: 1.5em;">
+              Alegeți luna în care produsele afișate în grafic au fost vândute:
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select placeholder="{{defaultMonth}} (implicit)" (ionChange)="selectMonthTopProductsSoldByLoggedAgent($event)" 
+              (ionCancel)="clearSelectionMonthTopProductsSoldByLoggedAgentAction()">
+              <ion-select-option *ngFor="let month of months" value={{month}}>{{month}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p class="choose" style="margin:auto; width: 85%; text-align: center; margin-top: 1.5em;">
+              Alegeți perioda în care produsele afișate în grafic au fost vândute:
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select placeholder="Luna curenta (Mai)" placeholder="{{defaultMonth}} (implicit)" (ionChange)="selectMonthPeriodStartTopProductsSoldByLoggedAgent($event)" 
+                (ionCancel)="clearSelectionMonthPeriodStartTopProductsSoldByLoggedAgentAction()">
+              <ion-select-option class="month" *ngFor="let month of months" value={{month}}>{{month}}</ion-select-option>
+            </ion-select>
+            <ion-select placeholder="Luna curenta (Mai)" placeholder="{{defaultMonth}} (implicit)" (ionChange)="selectMonthPeriodEndTopProductsSoldByLoggedAgent($event)" 
+                (ionCancel)="clearSelectionMonthPeriodEndTopProductsSoldByLoggedAgentAction()">
+              <ion-select-option *ngFor="let month of months" value={{month}}>{{month}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <div class="container-canvas" [hidden]="!canShowTopProductsSoldByLoggedAgent">
+          <p [hidden]="!canShowTopProductsSoldByLoggedAgentMessage">
+            Top {{numberOfProductsTopProductsSoldByLoggedAgent}} produse vandute in luna {{monthTopProductsSoldByLoggedAgent}} si valoarea vanzarilor pe produs
+          </p>
+          <p [hidden]="!canShowTopProductsSoldByLoggedAgentPeriod">
+            Top {{numberOfProductsTopProductsSoldByLoggedAgent}} produse vandute in perioada {{monthPeriodStartTopProductsSoldByLoggedAgent}} - 
+              {{monthPeriodEndTopProductsSoldByLoggedAgent}} si valoarea vanzarilor pe produs
+          </p>  
+          <canvas #barCanvasTopProductsSoldByLoggedAgent></canvas>
+        </div>
+        <div class="container" [hidden]="!cantShowTopProductsSoldByLoggedAgent">
+          <p class="choose">
+            Nu sunt înregistrate produse vândute de agentul {{this.agentId}} în luna {{monthTopProductsSoldByLoggedAgent}}
+          </p>
+        </div>
+        <div class="container" [hidden]="!cantShowTopProductsSoldByLoggedAgentPeriod">
+          <p class="choose">
+            Nu sunt înregistrate produse vândute de agentul {{this.agentId}} în perioada {{monthPeriodStartTopProductsSoldByLoggedAgent}} - 
+              {{monthPeriodEndTopProductsSoldByLoggedAgent}}
+          </p>
+        </div>
+      </div>
+
+      <ion-card-subtitle>
+        <ion-item class="report" button (click)="showContentSelectedProductSoldByLoggedAgentAction()" lines="none">
+          Alege produs
+        </ion-item>
+      </ion-card-subtitle>
+      <div [hidden]="!showContentSelectedProductSoldByLoggedAgent">
+        <ion-row>
+          <ion-col style="display: flex;">
+          <ion-label class="choose" style="margin:auto; width: 85%; text-align: center; margin-top: 1.5em;">
+              Căutați produsul după nume:
+            </ion-label>
+          </ion-col>
+        </ion-row>
+        <ion-item>
+          <div>
+            <ion-searchbar class="search-bar" placeholder="Nume Produs" (ionInput)="searchProductsByLoggedAgentAction($event)" [value]="getProductNameFromSearchProductsByLoggedAgent()"
+              [placeholder]="productName">
+            </ion-searchbar>
+            <div *ngIf="searchedProductsByLoggedAgent" class="products-list">
+              <ion-item button (click)="showGraphForProductByLoggedAgent(product)" *ngFor="let product of products" class="item-content">{{product}}</ion-item>
+            </div>
+          </div>
+        </ion-item>
+        <div class="line"></div>
+        <ion-row>
+          <ion-col>
+            <p class="choose" style="margin:auto; width: 85%; text-align: center; margin-top: 1.5em;">
+              Alegeți luna în care produsele afisate în grafic au fost vândute:
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select placeholder="Luna curenta (Mai)" (ionChange)="selectMonthSelectedProductSoldByLoggedAgent($event)" 
+                (ionCancel)="clearSelectionMonthSelectedProductSoldByLoggedAgent()">
+              <ion-select-option *ngFor="let month of months" value={{month}}>{{month}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <p class="choose" style="margin:auto; width: 85%; text-align: center; margin-top: 1.5em;">
+              Alegeți perioda în care produsele afișate în grafic au fost vândute:
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select placeholder="Luna curenta (Mai)" placeholder="{{defaultMonth}} (implicit)" (ionChange)="selectMonthPeriodStartSelectedProductSoldByLoggedAgent($event)" 
+                (ionCancel)="clearSelectionMonthPeriodStartSelectedProductSoldByLoggedAgent()">
+              <ion-select-option *ngFor="let month of months" value={{month}}>{{month}}</ion-select-option>
+            </ion-select>
+            <ion-select placeholder="Luna curenta (Mai)" placeholder="{{defaultMonth}} (implicit)" (ionChange)="selectMonthPeriodEndSelectedProductSoldByLoggedAgent($event)" 
+                (ionCancel)="clearSelectionMonthPeriodEndTopProductsSoldByLoggedAgent()">
+              <ion-select-option *ngFor="let month of months" value={{month}}>{{month}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <div class="container-canvas" [hidden]="!canShowSelectedProductSoldByLoggedAgent">
+            <p [hidden]="!canShowSelectedProductSoldByLoggedAgentMessage">
+              Valoarea produselor: {{productName}} vândute în luna {{monthSelectedProductSoldByLoggedAgent}}
+            </p>
+            <p [hidden]="!canShowSelectedProductSoldByLoggedAgentPeriod">
+              Valoarea produselor: {{productName}} vândute în perioada {{monthPeriodStartSelectedProductSoldByLoggedAgent}} - {{monthPeriodEndSelectedProductSoldByLoggedAgent}}
+            </p>
+            <canvas #barCanvasSelectedProductSoldByLoggedAgent id="barCanvasSelectedProductSoldByLoggedAgent"></canvas>
+        </div>
+        <div class="container" [hidden]="!cantShowSelectedProductSoldByLoggedAgent">
+          <p class="choose">
+              Nu sunt înregistrate produse: {{productName}} vândute de agentul {{this.agentId}} în luna {{monthSelectedProductSoldByLoggedAgent}}
+          </p>
+        </div>
+        <div class="container" [hidden]="!cantShowSelectedProductSoldByLoggedAgentPeriod">
+          <p class="choose">
+              Nu sunt înregistrate produse: {{productName}} vândute de agentul {{this.agentId}} în perioada {{monthPeriodStartSelectedProductSoldByLoggedAgent}} - 
+                {{monthPeriodEndSelectedProductSoldByLoggedAgent}}
+        </div>
+      </div>
+    </ion-card>
+  </div>
+
+  <div>
+    <p class="paragraph" *ngIf="userRole === 'ADMIN'">
+      Detalii despre agenți
+    </p>
+    <ion-card *ngIf="userRole === 'ADMIN'">
+      <ion-card-subtitle>
+        <ion-item button (click)="showContentTopAgentsAction()" lines="none">
+          Top agenti
+        </ion-item>
+      </ion-card-subtitle>
+      <div [hidden]="!showContentTopAgents">          
+        <ion-row>
+          <ion-col style="display: flex;">
+            <p style="margin:auto; width: 85%; text-align: center; margin-top: 1.5em;">
+              Alegeti numarul de agenti afisati in grafic:
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select [(ngModel)]="defaultNumberOfObjects" placeholder="5 (implicit)" (ionChange)="selectNumberOfTopAgentsAction($event)" (ionCancel)="clearSelectionNumberOfTopAgents()">
+              <ion-select-option *ngFor="let numberOfProducts of numbersOfObjects" value={{numberOfProducts}}>{{numberOfProducts}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <div class="line"></div>
+        <ion-row>
+          <ion-col>
+            <p style="margin:auto; width: 85%; text-align: center; margin-top: 1.5em;">
+              Alegeti luna in care agentii din top {{numberOfTopAgents}} afisati in grafic au vandut produse
+            </p>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-select placeholder="Luna curenta (Mai)" (ionChange)="selectMonthTopAgents($event)">
+              <ion-select-option *ngFor="let month of months" value={{month}}>{{month}}</ion-select-option>
+            </ion-select>
+          </ion-col>
+        </ion-row>
+        <div class="container-canvas">
+          <canvas #barCanvasTopAgents></canvas>
+        </div>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>

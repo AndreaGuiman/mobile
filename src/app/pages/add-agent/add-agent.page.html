@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="toolbar">
+      <ion-button (click)="goBack()" fill="clear">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="card">
+    <ion-card-header>
+      <ion-card-title style="text-align: center; color: rgb(4, 4, 85);font-weight: bold;">
+        Adăugați un agent nou
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card-subtitle color="rgb(4, 4, 85)">
+        Detalii cont:
+      </ion-card-subtitle>
+
+      <section style="margin-top: 2em;">
+        <div class="container">
+          <ion-label>Prenume agent:</ion-label>
+          <ion-input type="text" placeholder="Prenume agent" [(ngModel)]="inputFirstName"></ion-input>
+        </div>
+      </section>
+
+      <section style="margin-top: 1.5em;">
+        <div class="container">
+          <ion-label>Nume agent:</ion-label>
+          <ion-input type="text" placeholder="Nume agent" [(ngModel)]="inputLastName"></ion-input>
+        </div>
+      </section>
+
+      <section style="margin-top: 1.5em;">
+        <div class="container">
+          <ion-label>Număr de telefon:</ion-label>
+          <ion-input type="text" placeholder="Număr de telefon" [(ngModel)]="inputTelephoneNumber"></ion-input>
+        </div>
+      </section>
+
+      <section style="margin-top: 1.5em;">
+        <div class="container">
+          <ion-label>Username:</ion-label>
+          <ion-input type="text" placeholder="Username" [(ngModel)]="inputUsername"></ion-input>
+        </div>
+      </section>
+
+      <section style="margin-top: 1.5em;">
+        <div class="container">
+          <ion-label>Parolă:</ion-label>
+          <ion-input type="text" placeholder="Parolă" [(ngModel)]="inputPassword"></ion-input>
+        </div>
+      </section>
+
+    </ion-card-content>
+    <ion-card-content>
+      <ion-button (click)="addAgent()">
+        Adaugă agent
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

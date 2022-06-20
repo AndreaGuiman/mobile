@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="toolbar">
+      <ion-button (click)="goBack()" fill="clear">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="orders">
+  <p text-muted class="title">
+    Comenzi {{orderType}}:
+     <!-- ale agentului {{agentName}} -->
+  </p>
+      <ion-card (click)="openOrder(order)" *ngFor="let order of orders">
+        <ion-card-content class="details">
+          <p>
+            Id comandă: {{order.id}}
+          </p>
+          <p>
+            Client: {{order.client.name}}
+          </p>
+          <p>
+            Data: {{order.dateOfOrder}}
+          </p>
+          <p>
+            Preț: {{order.price}} ron
+          </p>
+        </ion-card-content>
+      </ion-card>
+</ion-content>

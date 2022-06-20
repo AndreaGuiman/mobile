@@ -1,0 +1,67 @@
+.toolbar{
+    display: flex;
+    font-size: large;
+}
+
+.grid-item{
+    display: flex;
+}
+
+.container-img{
+    width: 50%;
+}
+
+.product-preview{
+    margin-left: 0.75em;
+    width: 65%;
+    position: relative;
+    font-weight: bold;
+}
+
+.container-btn-add-cart{
+    float: right;
+    bottom: 0;
+}
+
+img{
+    margin-top: 0.75em;
+    margin-bottom: 0.5em;
+}
+
+.offer{
+    color: red;
+    font-weight: bold;
+    float: right;
+}
+
+.temp{
+    display: flex;
+}
+
+.q{
+    font-size: large;
+    margin-top: 0.4em;
+}
+
+ion-input{
+    width: 3em;
+    margin: 0 auto;
+}
+
+.fixed{
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.total-price{
+    font-weight: bolder;
+    font-size: larger;
+    color: rgb(9, 9, 73);
+}
+
+.temp{
+    background-color: rgb(90, 88, 88);
+}

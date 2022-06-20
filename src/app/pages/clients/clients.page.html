@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="toolbar">
+
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="clients">
+    <div>
+      <div class="search-list" >
+        <ion-searchbar placeholder="Nume Client" (ionInput)="searchClients($event)">
+        </ion-searchbar>
+      </div>
+      <div *ngIf="viewSearchbar" class="products-list">
+        <ion-item class ="client" button (click)="goToClientDetailsFromSearchBar(clientName)" *ngFor="let clientName of clientNames"
+           class="item-content">{{clientName}}</ion-item>
+      </div>
+    </div>
+    <div class="clients">
+      <ion-item button class="client" (click)="goToClientDetails(client.id)" *ngFor="let client of clients">
+        <div class="client-preview">
+          <p>
+            {{client.name}}
+          </p>
+        </div>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>

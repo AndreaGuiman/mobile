@@ -1,0 +1,37 @@
+<ion-content>
+  <ion-card class="custom-card">
+    <ion-card-header>
+      <img src="/assets/gif/gif.gif" alt="">
+      <ion-card-title>
+        <h3>
+          Login
+        </h3>
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <section>
+        <div class="input">
+          <ion-icon name="person-circle-outline"></ion-icon>
+          <ion-input type="text" placeholder="Username" [(ngModel)]="inputUsername"></ion-input>
+        </div>
+        <ion-item-divider></ion-item-divider>
+        <div class="input">
+          <ion-icon name="lock-closed-outline"></ion-icon>
+          <ion-input type="password" placeholder="Password" [(ngModel)]="inputPassword"></ion-input>
+        </div>
+      </section>
+    </ion-card-content>
+  </ion-card>
+  <ion-card class="custom-container">
+    <ion-card-content>
+      <section>
+        <ion-button (click)="login()">
+          Login
+        </ion-button>
+      </section>
+      <section>
+        <!-- <a (click)="forgotPassword()">Ati uitat parola?</a> -->
+      </section>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

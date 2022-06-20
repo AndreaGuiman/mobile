@@ -1,0 +1,101 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()" fill="clear">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+    <ion-button (click)="goToCart()" class="cart" fill="clear" *ngIf="clientId">
+      <ion-icon name="cart"></ion-icon>
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="product">
+    <ion-card-content class="product-img">
+      <!-- <ion-slides pager>
+        <ion-slide>
+          <img src="assets/images/avatar.png" />
+        </ion-slide>
+        <ion-slide>
+          <img src="assets/images/avatar.png" />
+        </ion-slide>
+        <ion-slide>
+          <img src="assets/images/avatar.png" />
+        </ion-slide>
+      </ion-slides> -->
+      <ion-img [src]="croppedImagepath" *ngIf="croppedImagepath">
+      </ion-img>
+    </ion-card-content>
+    <ion-card-header>
+      <ion-card-title>
+       <b>{{product.name}}</b> 
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <p>
+        <b>Stoc:</b> {{product.stock}} buc
+      </p>
+      <p>
+        <b>Preț:</b> {{product.price}} ron
+      </p>
+      <div class="container-btn-add-cart">
+        <ion-button (click)="addToCart(product.id)" *ngIf="clientId">
+          <ion-icon name="add"></ion-icon>
+        </ion-button>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="product">
+    <ion-card-header>
+      <ion-card-subtitle> 
+        Descriere
+      </ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content> 
+      {{product.description}}
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card *ngIf="!edit && userRole === 'ADMIN'">
+    <ion-button (click)="editAction()" fill="clear" class="edit">
+      <ion-icon name="settings"></ion-icon>
+      Editează stoc produs
+    </ion-button>
+  </ion-card>
+
+  <ion-card *ngIf="edit" style="margin-bottom: 2em;">
+    <section style="margin-top: 1em;">
+      <div class="container">
+        <ion-label>Stoc:</ion-label>
+        <ion-input type="number" placeholder="Stoc" [(ngModel)]="inputStock"></ion-input>
+      </div>
+    </section>
+    <ion-button (click)="update()" fill="clear" class="edit">
+      <ion-icon name="checkmark-done-outline"></ion-icon>
+      Salvează modificări
+    </ion-button>
+  </ion-card>
+
+  <div [hidden]="!showSelectQuantity" class="fixed">
+    <ion-card>
+      <ion-card-content class="quatity">
+        <div class="temp">
+          <p class="q">
+            Cantitate:
+          </p>
+          <ion-input type="text" [(ngModel)]="quantity">
+          </ion-input>
+        </div>
+        <div class="temp">
+          <ion-button (click)="getValueFromInputQuantity()">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+          </ion-button>
+          <ion-button (click)="close()" fill="clear" class="edit">
+            <ion-icon name="close"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

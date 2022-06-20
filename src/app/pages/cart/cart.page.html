@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="goBack()" fill="clear" *ngIf="cartId">
+      <ion-icon name="arrow-back"></ion-icon>
+    </ion-button>
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-label *ngIf="productQuantities.length === 0">
+      Nu există nici un produs adăugat!
+    </ion-label>
+    <ion-row *ngFor="let productQuantity of productQuantities">
+      <ion-col size="12">
+        <ion-item>
+          <div>
+            <div class="grid-item">
+              <div class="container-img">
+                <img [src]="productQuantity.product.productImage"/>
+              </div>
+              <div class="product-preview">
+                <div>
+                  <p>
+                    {{productQuantity.product.name}}
+                  </p>
+                  <p>
+                    Pret buc: {{productQuantity.product.price}} ron
+                  </p>
+                  <p>
+                    Pret total: {{productQuantity.price}} ron
+                  </p>
+                  <p>
+                    Cantitate: {{productQuantity.quantity}} buc
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="container-btn-add-cart">
+              <ion-button (click)="addQuantity(productQuantity.product.id)">
+                <ion-icon name="add"></ion-icon>
+              </ion-button>
+              <ion-button (click)="removeQuantity(productQuantity.product.id)">
+                <ion-icon name="remove"></ion-icon>
+              </ion-button>
+              <ion-button (click)="removeProduct(productQuantity.product.id)">
+                <ion-icon name="trash"></ion-icon>
+              </ion-button>
+            </div>
+          </div>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+    <ion-row *ngIf="cartId && productQuantities.length > 0">
+      <ion-col>
+        <ion-card>
+          <ion-card-content>
+            <p class="total-price">
+              Preț total: {{totalPrice}} ron
+            </p>
+            <ion-button (click)="deleteAll()">
+              Șterge toate produsele
+            </ion-button>
+            <ion-button (click)="createOrder()">
+              Confirmă comanda
+            </ion-button>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div [hidden]="!showSelectQuantity" class="fixed">
+    <ion-card>
+      <ion-card-content class="modify-quatity">
+        <div class="temp">
+          <p class="q">
+            Cantitate:
+          </p>
+          <ion-input type="text" [(ngModel)]="quantity">
+          </ion-input>
+        </div>
+        <div class="temp">
+          <ion-button (click)="getValueFromInputQuantity()">
+            <ion-icon name="checkmark-circle-outline"></ion-icon>
+          </ion-button>
+          <ion-button (click)="close()" fill="clear">
+            <ion-icon name="close"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

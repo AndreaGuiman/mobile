@@ -1,0 +1,27 @@
+ion-img{
+    margin: 0 auto;
+    width: 15em;
+}
+
+.toolbar{
+    display: flex;
+    font-size: large;
+}
+
+ion-item{
+    --background: rgba(255, 255, 255, 0.575) !important;
+}
+
+ion-item:hover{
+    --background: rgb(95, 188, 211) !important;
+        --background: linear-gradient(90deg, rgba(95,188,211,1) 21%, rgba(0,212,255,1) 54%, rgba(2,0,36,1) 100%) !important;
+}
+
+ion-label, ion-card-title, ion-card-subtitle{
+    font-size: large;
+    color: rgb(15, 15, 83);
+}
+
+.image{
+    --background: rgb(15, 15, 83);;
+}

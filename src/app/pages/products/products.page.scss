@@ -1,0 +1,60 @@
+.cart{
+    float: right;
+}
+
+.product-preview{
+    margin-left: 0.75em;
+    width: 65%;
+    position: relative;
+    font-weight: bold;
+    color:rgb(5, 91, 131);
+}
+
+.container-btn-add-cart{
+    position: absolute;
+    right: 0.5em;
+    bottom: 0.5em;
+}
+
+ion-img{
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+    max-width: 15em;
+    margin: 0 auto;
+}
+
+ion-item{
+    background-color: #f4f4f4 !important;
+}
+
+ion-searchbar{
+    width: 90%;
+}
+
+.fixed{
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ion-input{
+    width: 3em;
+    margin: 0 auto;
+}
+
+.temp{
+    display: flex;
+    background-color: #4b4848;
+}
+
+.q{
+    font-size: large;
+    margin-top: 0.4em;
+}
+
+.image{
+    margin-top: 1em;
+}
+

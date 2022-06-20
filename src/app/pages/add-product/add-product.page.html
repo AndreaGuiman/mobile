@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-toolbar>
+    <div class="toolbar">
+      <ion-button (click)="goBack()" fill="clear">
+        <ion-icon name="arrow-back"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title style="text-align: center;font-weight: bold;">
+        Adăugați un produs nou
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-card-subtitle>
+        Alege categoria:
+      </ion-card-subtitle>
+
+      <div>
+        <div class="search-list" >
+          <ion-searchbar placeholder="Nume categorie" (ionInput)="searchCategories($event)"  [(ngModel)]="category">
+          </ion-searchbar>
+        </div>
+        <div *ngIf="viewSearchbar" class="products-list">
+            <ion-item class="categories" button (click)="selectCategory(category)" *ngFor="let category of categories" class="item-content">{{category}}</ion-item>
+        </div>
+      </div>
+
+      <section style="margin-top: 1em;">
+        <div class="container">
+          <ion-label>Poza:</ion-label>
+          <ion-img [src]="croppedImagepath" *ngIf="croppedImagepath">
+          </ion-img>
+          <ion-button class="image" expand="full" (click)="selectImage()">
+            <ion-icon slot="start" name="camera"></ion-icon>
+            Selectați poza
+          </ion-button>
+        </div>
+      </section>
+
+      <section style="margin-top: 1em;">
+        <div class="container">
+          <ion-label>Nume:</ion-label>
+          <ion-input type="text" placeholder="Nume" [(ngModel)]="inputName"></ion-input>
+        </div>
+      </section>
+      <section style="margin-top: 1em;">
+        <div class="container">
+          <ion-label>Preț:</ion-label>
+          <ion-input type="text" placeholder="Pret" [(ngModel)]="inputPrice"></ion-input>
+        </div>
+      </section>
+      <section style="margin-top: 1em;">
+        <div class="container">
+          <ion-label>Stoc:</ion-label>
+          <ion-input type="text" placeholder="Stoc" [(ngModel)]="inputStock"></ion-input>
+        </div>
+      </section>
+      <section style="margin-top: 1em;">
+        <div class="container">
+          <ion-label>Descriere:</ion-label>
+          <ion-input type="text" placeholder="Descriere" [(ngModel)]="inputDescription"></ion-input>
+        </div>
+      </section>
+    </ion-card-content>
+    <ion-card-content>
+      <ion-button (click)="addProduct()">
+        Adaugă produs
+      </ion-button>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

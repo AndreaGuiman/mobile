@@ -1,0 +1,54 @@
+.product-img{
+    display: flex;
+    justify-content: center;
+}
+
+ion-card-title{
+    font-size: xx-large;
+    text-align: center;
+    font-weight: bold;
+    color:rgb(161, 7, 7);
+}
+
+ion-card-content p{
+    font-size: larger;
+    // font-weight: bold;
+}
+
+ion-card{
+    margin-bottom: 1em;
+    color:rgb(19, 119, 165);
+    background-color: #f4f4f48a !important;
+}
+
+ion-card-subtitle{
+    font-size: x-large;
+    font-weight: bold;
+    color:rgb(5, 91, 131);
+}
+
+.cart{
+    float: right;
+}
+
+.fixed{
+    position: fixed;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.temp{
+    display: flex;
+}
+
+.q{
+    font-size: large;
+    margin-top: 0.4em;
+    color: rgb(155, 153, 153);
+  }
+
+  .quatity{
+    background-color: rgb(85, 84, 84);
+  }

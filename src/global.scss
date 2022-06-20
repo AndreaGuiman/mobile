@@ -24,3 +24,122 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+
+.toastSuccessful{
+    --color: white;
+    --background: var(--ion-color-success-shade);
+    --border-radius: 1em;
+    font-size: 1em !important;
+    text-align: center !important;
+}
+
+.toastUnsuccessful{
+    --color: white;
+    --background: var(--ion-color-danger);
+    --border-radius: 1em;
+    font-size: 1em !important;
+    text-align: center !important;
+}
+
+.searchbar-input.sc-ion-searchbar-md{
+    --background: #f4f4f4;
+    border-radius: 0.5em;
+    box-shadow: none;
+}
+
+ion-option, ion-select-option{
+    --background: rgb(95, 188, 211) !important;
+    --background: linear-gradient(90deg, rgba(95,188,211,1) 21%, rgba(0,212,255,1) 54%, rgba(2,0,36,1) 100%) !important;
+}
+
+ion-card{
+    background-color: transparent !important;
+    box-shadow: none;
+    border-radius: 0.5em;
+}
+
+ion-input{
+    // // --background: var(--ion-color-medium-tint) !important;
+    --background: rgba(182, 178, 178, 0.664) !important;
+    border-radius: 0.5em;
+    color: var(--ion-color-light) !important;
+}
+
+ion-item{
+    --background: transparent !important;
+    border-radius: 0.5em;
+}
+
+ion-button{
+    border-radius: 0.5em;
+}
+
+ion-item:hover{
+    --background: rgb(95, 188, 211) !important;
+    --background: linear-gradient(90deg, rgba(95,188,211,1) 21%, rgba(0,212,255,1) 54%, rgba(2,0,36,1) 100%) !important;
+}
+
+ion-content{
+    --background: url(/assets/images/blue_background.png) 0 0/100% 100% no-repeat;
+    // --background: lightblue !important;
+}
+
+ion-alert {
+    // --color: black !important;
+
+    //background color
+    .alert-wrapper.sc-ion-alert-md {
+        --background: rgb(95, 188, 211) !important;
+        --background: linear-gradient(90deg, rgba(95,188,211,1) 21%, rgba(0,212,255,1) 54%, rgba(2,0,36,1) 100%) !important;
+    }
+  
+    // Header Text
+    .alert-title.sc-ion-alert-md {
+    //   font-size: 25px;
+    //   font-weight: 600;
+    //   font-family: "AustralisProSwash-Italic";
+    //   color: var(--ion-text-color, #00000080);
+    }
+  
+    // checkbox border color
+    [aria-checked="true"].sc-ion-alert-md .alert-radio-icon.sc-ion-alert-md {
+      border-color: #00000080;
+    }
+  
+    // checkbox or radio button color
+    .alert-radio-inner.sc-ion-alert-md {
+      background-color: #00000080 !important;
+    }
+  
+    // wrap the text
+    // culoare in interior
+    .alert-radio-label.sc-ion-alert-md {
+      white-space: pre-line !important;
+      font-family: "AustralisProSwash-Italic";
+      color: var(--ion-text-color, #000000b3);
+      font-weight: bold;
+    }
+  
+    // // Height of text
+    // .alert-tappable.sc-ion-alert-md {
+    // //   height: 77px !important;
+    // }
+  
+    // Checked text color
+    // cand selectezi valoare 
+    [aria-checked="true"].sc-ion-alert-md .alert-radio-label.sc-ion-alert-md {
+      color: var(--ion-color-step-850, #262626);
+    }
+  
+    // Button color
+    .alert-button-inner.sc-ion-alert-md {
+      color: #00000080;
+      font-weight: bold;
+      font-size: larger;
+    }
+}
+
+.select{
+    --background: rgb(95, 188, 211) !important;
+    --background: linear-gradient(90deg, rgba(95,188,211,1) 21%, rgba(0,212,255,1) 54%, rgba(2,0,36,1) 100%) !important;
+}

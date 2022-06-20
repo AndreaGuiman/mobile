@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [hidden]="!showContent">
+  <ion-card>
+    <ion-card-content>
+      <img [src]="croppedImagepath" [hidden]="!imgLoaded" />
+      <!-- <ion-img [src]="croppedImagepath" [hidden]="!imgLoaded">
+      </ion-img> -->
+    </ion-card-content>
+    <ion-card-header>
+      <ion-card-subtitle class="tile-title">Bine ai venit,</ion-card-subtitle>
+      <ion-card-title class="title">{{agentName}}</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+
+  <div>
+    <p class="tile-title">
+      Contul meu
+    </p>
+    <ion-item button (click)="goToOpenOrders()" class="top-item">
+      Comenzi deschise
+    </ion-item>
+    <ion-item button (click)="goToSentOrders()">
+      Comenzi finalizate
+    </ion-item>
+    <ion-item button (click)="goToCanceledOrders()" class="bottom-item">
+      Comenzi anulate
+    </ion-item>
+
+  </div>
+
+  <div>
+    <p  class="tile-title">
+      Panou de control
+    </p>
+    <ion-item button (click)="goToReports()" class="only-item">
+      Rapoarte
+    </ion-item>
+    <ion-item button (click)="addClient()" class="top-item">
+      Adaugă un client nou
+    </ion-item>
+    <ion-item [hidden]="!isAdmin" button (click)="addProduct()">
+      Adaugă un produs nou
+    </ion-item>
+    <ion-item  [hidden]="!isAdmin" button (click)="addAgent()" class="bottom-item">
+      Adaugă un agent nou
+    </ion-item>
+  </div>
+
+  <!-- button lines="none" -->
+  <div>
+    <p class="tile-title">
+      Setări
+    </p>
+    <ion-item class="bottom-item" (click)="logout()">
+      Delogare
+    </ion-item>
+  </div>
+
+  <!-- <ion-item button (click)="openPDF()">
+    PDF
+  </ion-item> -->
+</ion-content>
