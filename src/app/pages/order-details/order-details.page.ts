@@ -39,8 +39,6 @@ export class OrderDetailsPage implements OnInit {
       this.userRole = params.userRole;
       this.agentId = params.agentId;
       this.agentName = params.agentName;
-      console.log(params);
-      console.log(this.orderId);
       this.orderService.getById(this.orderId)
         .subscribe(order => {
           this.order = order;
@@ -55,11 +53,8 @@ export class OrderDetailsPage implements OnInit {
               quantity: order.quantities[i],
               price: order.products[i].price * order.quantities[i]
             };
-            console.log(productQuantity);
             this.productQuantities.push(productQuantity);
           }
-          console.log(order);
-          console.log(this.quantities);
         });
     });
   }
@@ -85,8 +80,7 @@ export class OrderDetailsPage implements OnInit {
   }
 
   openPDF(order: Order): void {
-    console.log(order);
-    console.log(order.id);
+
     this.orderService.getPDF(order.id)
     .subscribe(orderPDF => {
       const file = new Blob([orderPDF], { type: 'application/pdf'});

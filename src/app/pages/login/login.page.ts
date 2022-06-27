@@ -33,11 +33,6 @@ export class LoginPage implements OnInit {
     this.authenticate(user);
   }
 
-  forgotPassword(): void {
-
-    this.authService.logout();
-  }
-
   private authenticate(user: User): any {
     if(this.checkField(this.inputUsername) || this.checkField(this.inputPassword)){
       this.showToast(

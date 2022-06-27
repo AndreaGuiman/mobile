@@ -10,7 +10,7 @@ export class ClientService {
   id: number;
 
   private readonly baseUrl = 'http://localhost:8080/clients';
-  // private readonly baseUrl = 'https://bfb8-2a02-2f0e-dd0c-8d00-82b-c300-717f-8186.eu.ngrok.io/clients';
+  // private readonly baseUrl = 'https://a14e-2a02-2f0e-dd0c-8d00-6800-740c-3ff8-2151.eu.ngrok.io/clients';
   private readonly httpOptions = {
     headers: new HttpHeaders({
         // eslint-disable-next-line @typescript-eslint/naming-convention

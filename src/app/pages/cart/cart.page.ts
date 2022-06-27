@@ -103,6 +103,15 @@ export class CartPage implements OnInit {
                 for(let i = 0; i < size; i++){
                   if(cart.productQuantities[i].product.id === product.id){
                     if(this.add === true){
+                      if(this.quantity > cart.productQuantities[i].product.stock ||
+                          (+cart.productQuantities[i].quantity + +this.quantity > cart.productQuantities[i].product.stock)){
+                        this.showToast(
+                          3250,
+                          `Stocul produsului ${cart.productQuantities[i].product.name} este mai mic decât cantitatea introdusă`,
+                          'toastUnsuccessful'
+                        );
+                        return;
+                      }
                       cart.productQuantities[i].quantity = +cart.productQuantities[i].quantity + +this.quantity;
                       cart.productQuantities[i].price = cart.productQuantities[i].product.price * cart.productQuantities[i].quantity;
                       this.totalPrice = +this.totalPrice + +(cart.productQuantities[i].product.price * this.quantity);

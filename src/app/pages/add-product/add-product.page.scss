@@ -25,3 +25,11 @@ ion-label, ion-card-title, ion-card-subtitle{
 .image{
     --background: rgb(15, 15, 83);;
 }
+
+ion-searchbar{
+    background: transparent !important;
+    --background: transparent !important;
+    background-color: transparent !important;
+    border-radius: 1em;
+    color: grey;
+}

@@ -84,6 +84,10 @@ export class ClientDetalisPage implements OnInit {
       });
   }
 
+  close(): void {
+    this.edit = false;
+  }
+
   createCommand(): void {
     this.router.navigate([`client-details/${this.clientId}/category`], { queryParams: {
       userId: this.userId,

@@ -78,11 +78,11 @@
         </ion-row>
         <div class="container-canvas" [hidden]="!canShowTopProductsSoldByLoggedAgent">
           <p [hidden]="!canShowTopProductsSoldByLoggedAgentMessage">
-            Top {{numberOfProductsTopProductsSoldByLoggedAgent}} produse vandute in luna {{monthTopProductsSoldByLoggedAgent}} si valoarea vanzarilor pe produs
+            Top {{numberOfProductsTopProductsSoldByLoggedAgent}} produse vândute în luna {{monthTopProductsSoldByLoggedAgent}} și valoarea vânzărilor pe produs
           </p>
           <p [hidden]="!canShowTopProductsSoldByLoggedAgentPeriod">
-            Top {{numberOfProductsTopProductsSoldByLoggedAgent}} produse vandute in perioada {{monthPeriodStartTopProductsSoldByLoggedAgent}} - 
-              {{monthPeriodEndTopProductsSoldByLoggedAgent}} si valoarea vanzarilor pe produs
+            Top {{numberOfProductsTopProductsSoldByLoggedAgent}} produse vândute în perioada {{monthPeriodStartTopProductsSoldByLoggedAgent}} - 
+              {{monthPeriodEndTopProductsSoldByLoggedAgent}} și valoarea vânzărilor pe produs
           </p>  
           <canvas #barCanvasTopProductsSoldByLoggedAgent></canvas>
         </div>

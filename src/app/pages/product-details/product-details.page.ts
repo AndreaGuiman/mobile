@@ -71,7 +71,7 @@ export class ProductDetailsPage implements OnInit {
 
   update(): void {
 
-    if(this.inputStock > 0){
+    if(this.inputStock >= 0){
       this.productService.update(this.product.id, this.inputStock)
       .subscribe(success => {
         if(success){

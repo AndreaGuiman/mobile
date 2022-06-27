@@ -58,14 +58,14 @@ export class ClientsPage implements OnInit {
     this.viewSearchbar = true;
     const searchValue = $event.target.value;
     if(searchValue !== ''){
-      this.getClientNamesBySeachValue(searchValue);
+      this.getClientNamesBySearchValue(searchValue);
       return;
     }
     this.clientNames = [];
     this.viewSearchbar = false;
   }
 
-  getClientNamesBySeachValue(searchValue: string): void {
+  getClientNamesBySearchValue(searchValue: string): void {
     this.clientService.getNamesBySearchValue(searchValue)
       .subscribe(clientNames => {
         this.clientNames = clientNames;

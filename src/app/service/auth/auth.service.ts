@@ -16,7 +16,7 @@ export class AuthService {
   user: User;
 
   private readonly baseUrl = 'http://localhost:8080/users';
-  // private readonly baseUrl = 'https://bfb8-2a02-2f0e-dd0c-8d00-82b-c300-717f-8186.eu.ngrok.io/users';
+  // private readonly baseUrl = 'https://a14e-2a02-2f0e-dd0c-8d00-6800-740c-3ff8-2151.eu.ngrok.io/users';
   private readonly httpOptions = {
     headers: new HttpHeaders({
         // eslint-disable-next-line @typescript-eslint/naming-convention
@@ -45,7 +45,7 @@ export class AuthService {
     // eslint-disable-next-line @typescript-eslint/naming-convention
     const headers = new HttpHeaders({ 'Content-Type': 'application/json',
      responseType : 'blob'});
-    const url = 'https://0777-2a02-2f0e-dd0c-8d00-d1c1-bdd5-a51d-c281.eu.ngrok.io/test';
+    const url = 'https://f097-86-121-46-151.eu.ngrok.io/test';
     return this.httpClient.get<ArrayBuffer>(
       url,
       {

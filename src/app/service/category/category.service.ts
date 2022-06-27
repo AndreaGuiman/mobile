@@ -10,7 +10,7 @@ import { Product } from '../../model/product';
 })
 export class CategoryService {
   private readonly baseUrl = 'http://localhost:8080/categories';
-  // private readonly baseUrl = 'https://bfb8-2a02-2f0e-dd0c-8d00-82b-c300-717f-8186.eu.ngrok.io/categories';
+  // private readonly baseUrl = 'https://a14e-2a02-2f0e-dd0c-8d00-6800-740c-3ff8-2151.eu.ngrok.io/categories';
   private readonly httpOptions = {
     headers: new HttpHeaders({
         // eslint-disable-next-line @typescript-eslint/naming-convention

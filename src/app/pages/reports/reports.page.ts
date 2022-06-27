@@ -413,7 +413,7 @@ export class ReportsPage implements OnInit{
         });
           this.barChartTopAgents = this.chartService.barChartGraph(
             this.barCanvasTopAgents,
-            `Top ${numberOfAgents} agenti in luna ${month}`,
+            `Top ${numberOfAgents} agenți în luna ${month}`,
             labels,
             data
           );

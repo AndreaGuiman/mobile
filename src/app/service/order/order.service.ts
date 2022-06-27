@@ -12,8 +12,8 @@ import { Graph } from 'src/app/model/graph';
 export class OrderService {
   private readonly baseUrl = 'http://localhost:8080/orders';
   private readonly baseUrlPDF = 'http://localhost:8080/orders/pdf';
-  // private readonly baseUrl = 'https://bfb8-2a02-2f0e-dd0c-8d00-82b-c300-717f-8186.eu.ngrok.io/orders';
-  // private readonly baseUrlPDF = 'https://bfb8-2a02-2f0e-dd0c-8d00-82b-c300-717f-8186.eu.ngrok.io/orders/pdf';
+  // private readonly baseUrl = 'https://a14e-2a02-2f0e-dd0c-8d00-6800-740c-3ff8-2151.eu.ngrok.io/orders';
+  // private readonly baseUrlPDF = 'https://a14e-2a02-2f0e-dd0c-8d00-6800-740c-3ff8-2151.eu.ngrok.io/orders/pdf';
   private readonly httpOptions = {
     headers: new HttpHeaders({
         'Content-Type': 'application/json',
